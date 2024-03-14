@@ -1,14 +1,18 @@
+import React from "react";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, SafeAreaView, StatusBar, SectionList } from 'react-native';
+import DATA from "./src/json/bookData.json"
+import Booklist from "./src/components/Booklist"
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <StatusBar />
+      <Booklist/>
+    </SafeAreaView>
+      
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -17,4 +21,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+  },
+  sec_header: {
+    fontSize: 32,
+    backgroundColor: '#fff',
+  },
+  title: {
+    fontSize: 24,
+  },
 });
+
+
+export default App;
