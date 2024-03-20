@@ -1,5 +1,4 @@
 import React from "react";
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, SafeAreaView, StatusBar, SectionList } from 'react-native';
 import DATA from "./src/json/bookData.json"
 import Booklist from "./src/components/Booklist"
