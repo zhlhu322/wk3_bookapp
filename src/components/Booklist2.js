@@ -1,14 +1,13 @@
 import React from "react";
 import { ScrollView, SectionList, Text, StyleSheet, View } from "react-native";
+import BookDetail from "./BookDetail2";
+import bookData from "../json/bookData2.json";
 import AppLoading from 'expo-app-loading';
 import { useFonts,Roboto_500Medium } from '@expo-google-fonts/roboto';
 import { Box, Text} from "@gluestack-ui/themed";
 
-import BookDetail from "./BookDetail";
-import bookData from "../json/bookData.json";
-
-const Booklist = () => {
-    const renderItem = ({ item }) => < BookDetail book={item}/>
+const Booklist2 = () => {
+    const renderItem = ({ item }) => < BookDetail book={item} />
     let [fontsLoaded] = useFonts({
       Roboto_500Medium
     });
@@ -17,9 +16,9 @@ const Booklist = () => {
     }else{
       return (
         <Box>
-          <Text style={styles.listheader}>Popular Books</Text>
+          <Text style={styles.listheader}>Newest</Text>
           <SectionList
-            style={styles.sectionlist}
+            style ={styles.sectionlist}
             sections = {bookData}
             renderItem = {renderItem}
             keyExtractor={ item => item.title }
@@ -35,13 +34,7 @@ const styles = StyleSheet.create({
     display:"flex",
     flexDirection:"row",
     marginLeft:20,
-    height:256,
-    width:"auto",
-  },
-  sectionlist:{
-    height:256,
-    marginLeft:20,
-    marginBottom:16,
+    height:120
   },
   listheader:{
     fontSize:24,
@@ -50,7 +43,11 @@ const styles = StyleSheet.create({
     marginBottom:16,
     marginLeft:20,
     fontFamily:'Roboto_500Medium'
+  },
+  sectionlist:{
+    height:256,
+    marginLeft:20,
   }
 });
 
-export default Booklist;
+export default Booklist2;

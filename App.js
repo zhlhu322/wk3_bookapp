@@ -1,38 +1,23 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, StatusBar, SectionList } from 'react-native';
-import DATA from "./src/json/bookData.json"
-import Booklist from "./src/components/Booklist"
+import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+import Navigation from "./src/navigation";
+import {GluestackUIProvider} from '@gluestack-ui/themed';
+import {config} from '@gluestack-ui/config';
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar />
-      <Booklist/>
-    </SafeAreaView>
-      
+
+    <SafeAreaProvider >
+      <SafeAreaView style={{flex:1,backgroundColor:'#FFFFFF'}}>
+        <GluestackUIProvider config={config}>
+          <Navigation/> 
+        </GluestackUIProvider>
+      </SafeAreaView>  
+    </SafeAreaProvider>
+
+
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  item: {
-    backgroundColor: '#f9c2ff',
-    padding: 20,
-    marginVertical: 8,
-  },
-  sec_header: {
-    fontSize: 32,
-    backgroundColor: '#fff',
-  },
-  title: {
-    fontSize: 24,
-  },
-});
 
 
 export default App;
